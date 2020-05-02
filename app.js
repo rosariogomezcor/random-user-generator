@@ -2,6 +2,8 @@ var url = "https://randomuser.me/api";
 var fullnameDisp = document.querySelector("#fullname"); 
 var avatar = document.querySelector("#avatar"); 
 var username = document.querySelector("#username"); 
+var email = document.querySelector("#email"); 
+var city = document.querySelector("#city"); 
 
 var btn = document.querySelector("#btn"); 
 btn.addEventListener("click", function() {
@@ -14,6 +16,7 @@ btn.addEventListener("click", function() {
 }); 
 
 //Custom Functions
+
 function parseJSON(res) {
 		return res.json().then(function(parsedData) {
 			return parsedData.results[0]; 
@@ -26,4 +29,6 @@ function updateProfile(data) {
 		fullnameDisp.innerText = fullname; 
 		avatar.src = data.picture.medium; 
 		username.innerText = data.login.username; 
+		email.innerText = data.email; 
+		city.innerText = data.location.city; 
 	}	
